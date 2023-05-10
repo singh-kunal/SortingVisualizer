@@ -36,11 +36,20 @@ rdm_arr.addEventListener("click", function () {
     renderBars(unsorted_arr);
 })
 
-function bubbleSort(arr) {
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function bubbleSort(arr) {
     const n = arr.length;
     let bar = document.getElementsByClassName("bar");
     for (let i = 0; i < n - 1; i++) {
         for (let j = 0; j < n - i - 1; j++) {
+            for (let k = 0; k < n.length; k++) {
+                if(k !== j && k !== j+1){
+                    bar[k].style.backgroundColor = "white";
+                }   
+            }
             if (arr[j] > arr[j + 1]) {
                 const temp = arr[j];
                 arr[j] = arr[j + 1];
@@ -51,8 +60,10 @@ function bubbleSort(arr) {
                 bar[j + 1].style.height = arr[j + 1] * 10 + "px";
                 bar[j + 1].style.backgroundColor = "lightgreen";
                 bar[j + 1].style.innerText = arr[j + 1];
+                await sleep(100);
             }
         }
+        await sleep(100);
     }
     return arr;
 }
@@ -60,4 +71,4 @@ sort_btn.addEventListener('click', function () {
     let sorted_arr = bubbleSort(unsorted_arr);
     console.log(sorted_arr);
 })
-  
+
