@@ -3,7 +3,7 @@ let sort_btn = document.getElementById('sort_btn');
 let bar_container = document.getElementById('bar_container')
 let minRange = 1;
 let maxRange = 20;
-let barCount = 10;
+let barCount = 25;
 let unsorted_arr = new Array(barCount);
 
 function rdmNum(min,max) {
@@ -41,25 +41,25 @@ function sleep(ms) {
 }
 
 async function bubbleSort(arr) {
-    const n = arr.length;
+    let n = arr.length;
     let bar = document.getElementsByClassName("bar");
-    for (let i = 0; i < n - 1; i++) {
+    for (let i = 0; i < n; i++) {
         for (let j = 0; j < n - i - 1; j++) {
-            for (let k = 0; k < n.length; k++) {
-                if(k !== j && k !== j+1){
-                    bar[k].style.backgroundColor = "white";
-                }   
-            }
             if (arr[j] > arr[j + 1]) {
-                const temp = arr[j];
+                for (let k = 0; k < bar.length; k++) {
+                    if(k !== j && k !== j+1){
+                        bar[k].style.backgroundColor = "white";
+                    }   
+                }
+                let temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
                 bar[j].style.height = arr[j] * 10 + "px";
                 bar[j].style.backgroundColor = "lightgreen";
-                bar[j].style.innerText = arr[j];
+                // bar[j].style.innerText = arr[j];
                 bar[j + 1].style.height = arr[j + 1] * 10 + "px";
                 bar[j + 1].style.backgroundColor = "lightgreen";
-                bar[j + 1].style.innerText = arr[j + 1];
+                // bar[j + 1].style.innerText = arr[j + 1];
                 await sleep(100);
             }
         }
