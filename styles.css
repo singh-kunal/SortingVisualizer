@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rebeccapurple;
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -20,8 +23,25 @@
     flex-direction: row;
 }
 .bar{
-    width: 30px;
-    border: 1px solid black;
+    width: 20px;
+    border: 1px solid white;
+    background-color: brown;
     margin: 0 2px;
     transition: height 0.5s ease-in-out;
+}
+.button_container > button{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(225, 241, 77);
+    border: none;
+    border-radius: 5px;
+    color: rgb(116, 1, 59);
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin: 50px 5px;
+    
+}
+button:hover{
+    background-color: rgb(255, 255, 255);
 }
